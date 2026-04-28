@@ -4,6 +4,31 @@
     flex-direction: column;
 }
 
+.Contenedor {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.Formulario {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.Formulario form {
+    margin: 15px;
+    border-radius: 15px;
+    background-color: lightgrey;
+    padding: 15px 20px;
+    display: flex;  
+    flex-direction: column;
+}
+
+.Formulario input, select, button {
+    margin: 10px 5px;
+}
+
 .Listado {
     flex: 1;
     display: flex;
