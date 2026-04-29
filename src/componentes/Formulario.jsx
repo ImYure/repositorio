@@ -1,15 +1,29 @@
 import {useState} from "react";
 
-export default function Formulario() {
+export default function Formulario({guardar}) {
     const [documento, setDocumento] = useState("");
     const [apellidos, setApellidos] = useState("");
     const [nombres, setNombres] = useState("");
+    const [curso, setCurso] = useState("");
+    const [division, setDivision] = useState("");
     const [rol, setRol] = useState("");
 
     const hanlderSubmit = (e) => {
         e.preventDefault();
-        console.log({documento, apellidos, nombres, rol});
+        console.log({documento, apellidos, nombres, rol, curso, division});
+
+        const alumno = rol === "alumno";
+        const persona = {
+            documento,
+            apellidos,
+            nombres,
+            alumno,
+            curso,
+            division
+        }
+        guardar(persona);
     }
+
     
     return(
         <div className="Formulario">
@@ -33,6 +47,18 @@ export default function Formulario() {
                     placeholder="Nombre"
                     onChange={(e) => setNombres(e.target.value)}
                     value={nombres}
+                />
+                <input
+                    type="text"
+                    placeholder="Curso"
+                    onChange={(e) => setCurso(e.target.value)}
+                    value={curso}
+                />
+                <input
+                    type="text"
+                    placeholder="Division"
+                    onChange={(e) => setDivision(e.target.value)}
+                    value={division}
                 />
                 <select
                     onChange={(e) => setRol(e.target.value)}
